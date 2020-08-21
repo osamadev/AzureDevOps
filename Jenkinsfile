@@ -22,3 +22,5 @@ pipeline {
     bat 'dotnet build --configuration Release'
    }
   }
+}
+}
