@@ -24,7 +24,7 @@ pipeline {
   }
   stage('Publish') {
         steps {
-         sh 'dotnet publish /var/lib/jenkins/workspace/SmartHotel/SmartHotel360.PublicWeb/SmartHotel360.PublicWeb.csproj'
+         sh 'dotnet publish SmartHotel360.PublicWeb.csproj'
         }
   }
 }
