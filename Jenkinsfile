@@ -22,7 +22,7 @@ pipeline {
     sh 'dotnet build --configuration Release'
    }
   }
-  stage('Publish) {
+  stage('Publish') {
         steps {
          sh 'dotnet publish /var/lib/jenkins/workspace/SmartHotel/SmartHotel360.PublicWeb/SmartHotel360.PublicWeb.csproj'
         }
