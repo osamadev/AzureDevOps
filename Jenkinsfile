@@ -24,7 +24,7 @@ pipeline {
   }
   stage('Publish') {
         steps {
-         sh 'npm restore'
+         sh 'npm install'
          sh 'dotnet publish SmartHotel360.PublicWeb.sln'
         }
   }
