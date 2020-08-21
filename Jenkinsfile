@@ -19,7 +19,7 @@ pipeline {
   }
   stage('Build') {
    steps {
-    sh 'dotnet build SmartHotel360.PublicWeb.sln /nologo /p:PublishProfile=Release /p:PackageLocation="pkg" /p:OutDir="out" /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /maxcpucount:1 /p:platform="Any CPU" /p:configuration="Release" /p:DesktopBuildPackageLocation="out\package.zip"'
+    sh 'dotnet build SmartHotel360.PublicWeb.sln /nologo /p:PublishProfile=Release /p:PackageLocation="pkg/" /p:OutDir="out/" /p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /maxcpucount:1 /p:platform="Any CPU" /p:configuration="Release" /p:DesktopBuildPackageLocation="out/package.zip"'
    }
   }
   /*stage('Publish') {
