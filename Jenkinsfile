@@ -19,7 +19,7 @@ pipeline {
   }
   stage('Build') {
    steps {
-    sh 'dotnet build --configuration Release'
+    sh 'dotnet build --configuration Debug'
    }
   }
   stage('Publish') {
