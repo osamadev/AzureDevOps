@@ -9,7 +9,7 @@ pipeline {
   }
   stage('Restore PACKAGES') {
    steps {
-    sh "dotnet restore --configfile NuGet.Config"
+    sh "dotnet restore"
    }
   }
   stage('Clean') {
