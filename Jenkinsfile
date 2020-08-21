@@ -24,7 +24,7 @@ pipeline {
   }
   stage('Publish') {
         steps {
-         sh 'dotnet publish SmartHotel360.PublicWeb.csproj'
+         sh 'dotnet publish SmartHotel360.PublicWeb.sln'
         }
   }
 }
