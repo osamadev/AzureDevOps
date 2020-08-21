@@ -6,7 +6,7 @@ pipeline {
  stages {
   stage('Checkout') {
    steps {
-    git credentialsId: 'userId', url: 'https://github.com/NeelBhatt/SampleCliApp', branch: 'master'
+    git credentialsId: '8da9c8ef-b0ef-46f7-9ac3-90966514be3a', url: 'https://umosaad@dev.azure.com/umosaad/SmartHotel/_git/PublicWeb', branch: 'master'
    }
   }
   stage('Restore PACKAGES') {
@@ -24,15 +24,3 @@ pipeline {
     bat 'dotnet build --configuration Release'
    }
   }
-  stage('Pack') {
-   steps {
-    bat 'dotnet pack --no-build --output nupkgs'
-   }
-  }
-  stage('Publish') {
-   steps {
-    bat "dotnet nuget push **\\nupkgs\\*.nupkg -k yourApiKey -s            http://myserver/artifactory/api/nuget/nuget-internal-stable/com/sample"
-   }
-  }
- }
-}
