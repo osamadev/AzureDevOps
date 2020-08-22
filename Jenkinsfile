@@ -24,19 +24,19 @@ pipeline {
   }
   stage('Build') {
    steps {
-    sh 'dotnet build ${env.Solution_Name}'
+    sh 'dotnet build ${Solution_Name}'
    }
   }
   stage('Publish') {
         steps {
          /*sh 'npm install'*/
          sh 'dotnet publish -c Release -p:PublishProfile=FolderProfile'
-         sh 'zip -r SmartHotel.zip ${env.Release_Path}'
+         sh 'zip -r SmartHotel.zip ${Release_Path}'
         }
   }
   stage('Archive') {
     steps {
-     archiveArtifacts '${env.Release_Path}/*.zip'
+     archiveArtifacts '${Release_Path}/*.zip'
     }
   }
 }
