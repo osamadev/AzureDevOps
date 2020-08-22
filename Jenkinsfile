@@ -36,8 +36,7 @@ pipeline {
   }
   stage('Archive') {
     steps {
-        print ${Release_Path}'SmartHotel.zip'
-        archiveArtifacts ${Release_Path}'SmartHotel.zip'
+        archiveArtifacts 'SmartHotel360.PublicWeb/bin/Release/netcoreapp3.1/publish/SmartHotel.zip'
     }
   }
 }
