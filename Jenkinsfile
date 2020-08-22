@@ -28,5 +28,8 @@ pipeline {
          sh 'dotnet publish -p:PublishProfile=FolderProfile'
         }
   }
+  stage('Archive') {
+    archiveArtifacts "SmartHotel360.PublicWeb/bin/Debug/netcoreapp3.1/publish/"
+  }
 }
 }
