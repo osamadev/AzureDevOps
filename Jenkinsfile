@@ -36,8 +36,8 @@ pipeline {
   }
   stage('Archive') {
     steps {
-        print '${Release_Path}SmartHotel.zip'
-        archiveArtifacts '${Release_Path}SmartHotel.zip'
+        print ${Release_Path}'SmartHotel.zip'
+        archiveArtifacts ${Release_Path}'SmartHotel.zip'
     }
   }
 }
