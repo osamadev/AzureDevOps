@@ -1,6 +1,11 @@
 pipeline {
- agent any
-
+ agent {label 'master'}
+ environment {
+   Release_Path = 'SmartHotel360.PublicWeb/bin/Release/netcoreapp3.1/publish/'
+   Project_Name = 'SmartHotel360.PublicWeb.proj'
+   Solution_Name = 'SmartHotel360.PublicWeb.sln'
+ }
+ 
  stages {
   stage('Checkout') {
    steps {
@@ -19,18 +24,19 @@ pipeline {
   }
   stage('Build') {
    steps {
-    sh 'dotnet build SmartHotel360.PublicWeb.sln'
+    sh 'dotnet build ${env.Solution_Name}'
    }
   }
   stage('Publish') {
         steps {
          /*sh 'npm install'*/
          sh 'dotnet publish -c Release -p:PublishProfile=FolderProfile'
+         sh 'zip -r SmartHotel.zip ${env.Release_Path}'
         }
   }
   stage('Archive') {
     steps {
-       archiveArtifacts "SmartHotel360.PublicWeb/bin/Debug/netcoreapp3.1/publish/"
+     archiveArtifacts '${env.Release_Path}/*.zip'
     }
   }
 }
