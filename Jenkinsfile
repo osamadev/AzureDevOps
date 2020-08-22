@@ -25,11 +25,13 @@ pipeline {
   stage('Publish') {
         steps {
          /*sh 'npm install'*/
-         sh 'dotnet publish -p:PublishProfile=FolderProfile'
+         sh 'dotnet publish -c Release -p:PublishProfile=FolderProfile'
         }
   }
   stage('Archive') {
-    archiveArtifacts "SmartHotel360.PublicWeb/bin/Debug/netcoreapp3.1/publish/"
+    steps {
+       archiveArtifacts "SmartHotel360.PublicWeb/bin/Debug/netcoreapp3.1/publish/"
+    }
   }
 }
 }
